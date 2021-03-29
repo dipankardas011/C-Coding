@@ -125,7 +125,7 @@ void LeftRotate(struct btree *temp){
     if(!temp->parent) // root
         root=right;
     else if(temp==temp->parent->right)
-        temp->parent->right=right;
+        temp->parent->right=right; // make connection for temp->parent with right
     else
         temp->parent->left=right;
     right->left=temp;
