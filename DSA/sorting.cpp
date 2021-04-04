@@ -3,13 +3,6 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-void Swap(int &a, int &b)
-{
-	int t;
-	t = a;
-	a = b;
-	b = t;
-}
 void Print(int arr[], int N)
 {
 
@@ -28,7 +21,7 @@ void BubbleSort(int *arr, int size)
 		{
 			if (arr[j] > arr[j + 1])
 			{ // ascending order
-				Swap(arr[j], arr[j + 1]);
+				std::swap(arr[j], arr[j + 1]);
 				flag = 1;
 			}
 		}
@@ -64,7 +57,7 @@ void SelectionSort(int *a, int size)
 				min = j;
 
 		if (min != i)
-			Swap(a[i], a[min]);
+			std::swap(a[i], a[min]);
 	}
 }
 
@@ -81,7 +74,7 @@ int partition(int *a, int left, int right, int pivot)
 
 		if (left <= right)
 		{
-			Swap(a[left], a[right]);
+			std::swap(a[left], a[right]);
 			left++;
 			right--;
 		}
@@ -198,7 +191,7 @@ void HeapSort(int arr[], int N)
 
 	for (int i = N - 1; i > 0; i--)
 	{
-		// swap element from end and start
+		// std::swap element from end and start
 		std::swap(arr[0], arr[i]);
 		heapify(arr, 0, i);
 	}
