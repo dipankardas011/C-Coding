@@ -167,11 +167,45 @@ void MergeSort(int *a, int left, int right)
     }
 }
 
+
+void heapify(int arr[], int i, int size)
+{
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < size && arr[largest] < arr[left])
+        largest = left;
+
+    if (right < size && arr[largest] < arr[right])
+        largest = right;
+
+    if (largest != i)
+    {
+        std::swap(arr[largest], arr[i]);
+        heapify(arr, largest, size);
+    }
+}
+
+void HeapSort(int arr[], int N)
+{
+    for (int i = (N-1)/2; i >= 0; i--)
+        heapify(arr, i, N);
+
+    for (int i = N - 1; i > 0; i--)
+    {
+        // swap element from end and start
+        std::swap(arr[0], arr[i]);
+        heapify(arr, 0, i);
+    }
+}
+
 void sort1(void);
 void sort2(void);
 void sort3(void);
 void sort4(void);
 void sort5(void);
+void sort6(void);
 
 int main()
 {
@@ -180,6 +214,7 @@ int main()
     sort3();
     sort4();
     sort5();
+    sort6();
     cout << "\n\n================================================" << endl;
     return 0;
 }
@@ -243,4 +278,16 @@ void sort5()
     Print(a, N);
     MergeSort(a, 0, N - 1);
     Print(a, N);
+}
+void sort6()
+{
+    // max heap to get ascending
+    cout << "\n-----------------------------\n"
+         << "Heap sort\n"
+         << "----------------------------" << endl;
+    int arr[] = {3, 7, 4, 9, 5, 2, 8};
+    int N = sizeof(arr) / sizeof(arr[0]);
+    Print(arr, N);
+    HeapSort(arr, N);
+    Print(arr, N);
 }
