@@ -77,6 +77,23 @@ node *reverse_link_list(node *start){
     return start;
 }
 
+/*
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist) {
+    
+    SinglyLinkedListNode* curr=llist;
+    SinglyLinkedListNode* next=llist;
+    SinglyLinkedListNode* prev=NULL;
+    
+    while(curr){
+        next=next->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+    }
+    llist=prev;
+    return llist;
+}*/
+
 int main(){
     node *head=NULL;
     int x,m;

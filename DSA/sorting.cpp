@@ -35,10 +35,30 @@ void InsertionSort(int *arr, int size)
 
 	for (int i = 1; i < size; i++)
 	{
-		int temp = arr[i];
-		int j = i - 1;
-		while (j >= 0 && arr[j] > temp)
+		/*this loop is for the 1...size*/
+		int temp = arr[i];// sorting the i in temp
+		int j = i - 1;	// the j is running backwards
+		while (j >= 0 && arr[j] > temp)	// if the left side ele is > right side
 		{
+			// then copy the left in the right
+			/*
+			example: 1 4 3 2
+			i = 3
+			it is stored in temp "2"
+
+			j = i-1 = 2
+			j > "2" then becomes   1 4 '3' 3
+			j--
+
+			j = 1
+			j > "2" then becomes   1 '4' 4 3
+			j--
+
+			j=0
+			j< "2" here 1 < "2" so stop
+			till here it is 1 4 4 3 as in the last we don't swap
+			and so j+1 = 0+1 = 1 is replaced by "2" stored in t
+			*/
 			arr[j + 1] = arr[j];
 			j--;
 		}

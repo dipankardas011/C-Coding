@@ -16,8 +16,6 @@ btree *create_memory(){
         exit(0);
     }
     t->left = t->right = NULL;
-
-    return t;
 }
 
 btree * strict_binary_input(btree *p, int val){
